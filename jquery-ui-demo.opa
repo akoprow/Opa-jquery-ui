@@ -34,7 +34,7 @@ function mk_demo(demo) {
     #demo = gen()
   }
   function mk_page(page) {
-    <li><a onclick={show_demo(page.show)}>{page.name}</></>
+    <li><a onclick={show_demo(page.show)} data-toggle=tab>{page.name}</></>
   }
   function show(_) {
     #submenu =
@@ -42,14 +42,14 @@ function mk_demo(demo) {
         {List.map(mk_page, demo.pages)}
       </>
   }
-  <li><a onclick={show}>{demo.name}</></>
+  <li><a onclick={show} data-toggle=tab>{demo.name}</></>
 }
 
 function page() {
   <div class=container>
     <div class=row>
       <div class=span2>
-        <ul class="nav nav-tabs nav-stacked">
+        <ul id=menu class="nav nav-tabs nav-stacked">
           {List.map(mk_demo, demos)}
         </>
       </>
@@ -61,7 +61,7 @@ function page() {
 
 Server.start(Server.http,
   [ {resources: @static_resource_directory("resources")}
-  , {register: ["resources/bootstrap.css", "resources/style.css"]}
+  , {register: ["resources/bootstrap.css", "resources/style.css", "resources/bootstrap.js"]}
   , {title: "JQuery-UI in Opa", ~page}
   ]
 )
