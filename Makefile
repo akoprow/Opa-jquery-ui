@@ -1,10 +1,10 @@
 ########################################
 # USER VARIABLES
 
-EXE = demo.exe
+EXE = jquery-ui-demo.exe
 PACKNAME =
 SRC =
-MAINSRC = demo.opa
+MAINSRC = jquery-ui-demo.opa
 PCKDIR = ./packages/
 PCK = jQueryUI.opx
 PLUGIN =
@@ -21,10 +21,6 @@ RUNOPT ?= #-d --debug-js
 
 # Build exe
 default: exe
-
-# Generate doc ApiX
-gen: exe
-	./$(EXE) -g $(OPALANG)/_build/stdlib
 
 # Run Server
 run: exe
