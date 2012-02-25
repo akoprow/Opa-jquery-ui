@@ -2,4 +2,18 @@ package jQueryUI
 
 module jQueryUI {
 
+  module Sortable {
+
+    function void mk_sortable(dom) {
+      elt = Dom.of_selection(dom)
+      %%JQueryUI.mk_sortable%%(elt)
+    }
+
+    function void disable_selection(dom) {
+      elt = Dom.of_selection(dom)
+      %%JQueryUI.disable_selection%%(elt)
+    }
+
+  }
+
 }

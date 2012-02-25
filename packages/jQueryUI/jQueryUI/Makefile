@@ -2,7 +2,7 @@
 # USER VARIABLES
 MKLIB = opa-plugin-builder
 PLUGNAME = jQueryUI.opp
-SRC = ui/jquery-ui.js
+SRC = ui/jquery-ui.js jQueryUI.js
 
 ########################################
 # MAKEFILE VARIABLES
