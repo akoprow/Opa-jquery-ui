@@ -1,0 +1,5 @@
+package jQueryUI
+
+module jQueryUI {
+
+}
