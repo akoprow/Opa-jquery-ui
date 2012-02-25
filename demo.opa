@@ -8,13 +8,13 @@ module Sortable {
   demo =
     { name: "Sortable"
     , pages:
-        [ {name: "Default", show: default_sortable }
+        [ {name: "Default functionality", show: default_functionality }
         ]
     }
 
-  client function default_sortable() {
+  client function default_functionality() {
     function mk_entry(i) {
-      <li>Item #{i}</>
+      <li><div class="alert alert-info">Item #{i}</></>
     }
     function mk_sortable(_) {
       jQueryUI.Sortable.mk_sortable(#sortable)
@@ -61,7 +61,7 @@ function page() {
 
 Server.start(Server.http,
   [ {resources: @static_resource_directory("resources")}
-  , {register: ["resources/bootstrap.css"]}
+  , {register: ["resources/bootstrap.css", "resources/style.css"]}
   , {title: "JQuery-UI in Opa", ~page}
   ]
 )
