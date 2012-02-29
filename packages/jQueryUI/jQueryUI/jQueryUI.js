@@ -13,3 +13,10 @@
     dom.disableSelection();
     return js_void;
 }
+
+##register sortable_on_update : Dom.private.element, ( -> void) -> void
+##args(dom, on_update)
+{
+return dom.bind( "sortupdate", function(event, ui) { on_update(); } );
+}
+

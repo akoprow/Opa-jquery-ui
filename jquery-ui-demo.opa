@@ -9,6 +9,7 @@ module Sortable {
     { name: "Sortable"
     , pages:
         [ {name: "Default functionality", show: default_functionality }
+         ,{name: "on_update"            , show: on_update_demo }
         ]
     }
 
@@ -20,9 +21,33 @@ module Sortable {
       jQueryUI.Sortable.mk_sortable(#sortable)
       jQueryUI.Sortable.disable_selection(#sortable)
     }
-    <ul id=sortable onready={mk_sortable}>
-      {List.init(mk_entry, 7)}
-    </ul>
+    <div>
+      <ul id=sortable onready={mk_sortable}>
+        {List.init(mk_entry, 7)}
+      </ul>
+    </div>
+  }
+
+  client function on_update_demo() {
+    function mk_entry(i) {
+      <li id={i}><div class="alert alert-info">Item #{i}</></>
+    }
+    function on_update() {
+      children = Dom.split(Dom.select_children(#sortable))
+      l = List.map( function(d) { Dom.get_id(d) }, children)
+      #sorting = "sorting is: " ^ String.concat(", ", l)
+    }
+    function mk_sortable(_) {
+      jQueryUI.Sortable.mk_sortable(#sortable)
+      jQueryUI.Sortable.disable_selection(#sortable)
+      jQueryUI.Sortable.on_update(#sortable, on_update)
+    }
+    <div>
+      <span id=sorting/>
+      <ul id=sortable onready={mk_sortable}>
+        {List.init(mk_entry, 7)}
+      </ul>
+    </div>
   }
 
 }
