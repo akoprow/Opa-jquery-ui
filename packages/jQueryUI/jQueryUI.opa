@@ -14,6 +14,11 @@ module jQueryUI {
       %%JQueryUI.disable_selection%%(elt)
     }
 
+    function void on_update(dom, f) {
+      elt = Dom.of_selection(dom)
+      %%JQueryUI.sortable_on_update%%(elt,f)
+    }
+
   }
 
 }
