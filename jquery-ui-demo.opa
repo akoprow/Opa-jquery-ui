@@ -2,7 +2,37 @@ import jQueryUI
 
 //type demo_page = { string name, ( -> xhtml) show }
 //type demo = { string name, list(demo_page) pages }
+module Draggable {
+  demo =
+    { name: "Draggable"
+    , pages:
+        [ {name: "Default-sort", show: default_functionality }
+         ,{name: "on_update-drag"            , show: on_update_demo }
+        ]
+    }
 
+
+  client function default_functionality(){
+    function mk_draggable(_) {
+      jQueryUI.Draggable.mk_draggable(#draggable)
+      //return js_void;
+    }
+   
+  <div style="background:#cccccc" onready={mk_draggable}>bla</div>
+   
+  }
+
+  client function on_update_demo(){
+    function mk_draggable(_) {
+      jQueryUI.Draggable.mk_draggable(#draggable)
+      //return js_void;
+    }
+
+    <div id=draggable style="background:#cccccc" onready={mk_draggable}>bla</div>
+
+  }
+
+}
 module Sortable {
 
   demo =
