@@ -13,7 +13,7 @@ OTHER_DEPENDS =
 
 #Compiler variables
 OPACOMPILER = opa
-MINIMAL_VERSION = 1150
+MINIMAL_VERSION = 0
 FLAG = --minimal-version $(MINIMAL_VERSION) -v
 PORT = 8080
 

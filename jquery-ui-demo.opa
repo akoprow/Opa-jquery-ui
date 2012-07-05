@@ -6,21 +6,11 @@ module Draggable {
   demo =
     { name: "Draggable"
     , pages:
-        [ {name: "Default-sort", show: default_functionality }
-         ,{name: "on_update-drag"            , show: on_update_demo }
+        [ {name: "drag"            , show: on_update_demo }
         ]
     }
 
 
-  client function default_functionality(){
-    function mk_draggable(_) {
-      jQueryUI.Draggable.mk_draggable(#draggable)
-      //return js_void;
-    }
-   
-  <div style="background:#cccccc" onready={mk_draggable}>bla</div>
-   
-  }
 
   client function on_update_demo(){
     function mk_draggable(_) {
@@ -82,7 +72,7 @@ module Sortable {
 
 }
 
-demos = [Sortable.demo]
+demos = [Sortable.demo, Draggable.demo]
 
 function mk_demo(demo) {
   function show_demo(gen)(_event) {
@@ -116,7 +106,7 @@ function page() {
 
 Server.start(Server.http,
   [ {resources: @static_resource_directory("resources")}
-  , {register: ["resources/bootstrap.css", "resources/style.css", "resources/bootstrap.js"]}
+  , {register:{css: ["resources/bootstrap.css", "resources/style.css", "resources/bootstrap.js"]}}
   , {title: "JQuery-UI in Opa", ~page}
   ]
 )
