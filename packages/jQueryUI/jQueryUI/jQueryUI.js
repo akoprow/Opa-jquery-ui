@@ -20,3 +20,9 @@
 return dom.bind( "sortupdate", function(event, ui) { on_update(); } );
 }
 
+##register mk_draggable: Dom.private.element -> void
+##args(dom)
+{
+    dom.draggable();
+    return js_void;
+}

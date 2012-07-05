@@ -20,5 +20,11 @@ module jQueryUI {
     }
 
   }
+  module Draggable {
+    function void mk_draggable(dom) {
+      elt = Dom.of_selection(dom)
+      %%JQueryUI.mk_draggable%%(elt)
 
+    }
+  }
 }

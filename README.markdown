@@ -4,6 +4,7 @@ This is a project binding [jQuery UI](http://jqueryui.com) and porting its demos
 For now the only working functionality is:
 
 * Sortables (default demo)
+* Draggables
 
 Want to help?
 
