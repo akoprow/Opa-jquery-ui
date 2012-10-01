@@ -85,8 +85,11 @@ function page() {
 }
 
 Server.start(Server.http,
-  [ {resources: @static_resource_directory("resources")}
-  , {register: ["resources/bootstrap.css", "resources/style.css", "resources/bootstrap.js"]}
-  , {title: "JQuery-UI in Opa", ~page}
+  [ { resources: @static_resource_directory("resources") }
+  , { register: [
+          {css: ["resources/bootstrap.css", "resources/style.css"] }
+         , {js: ["resources/bootstrap.js"] }
+    ]}
+  , { title: "JQuery-UI in Opa", ~page }
   ]
 )
