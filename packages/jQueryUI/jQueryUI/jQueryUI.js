@@ -1,22 +1,25 @@
-##extern-type Dom.private.element
+/** @externType Dom.private.element */
 
-##register mk_sortable: Dom.private.element -> void
-##args(dom)
-{
-    dom.sortable();
-    return js_void;
+/**
+ * @register {Dom.private.element -> void}
+ */
+function mk_sortable(dom) {
+  dom.sortable();
+  return js_void;
 }
 
-##register disable_selection: Dom.private.element -> void
-##args(dom)
-{
-    dom.disableSelection();
-    return js_void;
+/**
+ * @register {Dom.private.element -> void}
+ */
+function disable_selection(dom) {
+  dom.disableSelection();
+  return js_void;
 }
 
-##register sortable_on_update : Dom.private.element, ( -> void) -> void
-##args(dom, on_update)
-{
-return dom.bind( "sortupdate", function(event, ui) { on_update(); } );
+/**
+ * @register {Dom.private.element, ( -> void) -> void}
+ */
+function sortable_on_update(dom, on_update) {
+  return dom.bind( "sortupdate", function(event, ui) { on_update(); } );
 }
 
